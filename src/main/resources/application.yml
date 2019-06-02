@@ -1,0 +1,5 @@
+s3:
+  region: ${S3_REGION}
+  key: ${S3_KEY}
+  secret: ${S3_SECRET}
+  bucket: ${S3_BUCKET}
