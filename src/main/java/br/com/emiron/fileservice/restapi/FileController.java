@@ -1,6 +1,6 @@
 package br.com.emiron.fileservice.restapi;
 
-import br.com.emiron.fileservice.FileService;
+import br.com.emiron.fileservice.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
