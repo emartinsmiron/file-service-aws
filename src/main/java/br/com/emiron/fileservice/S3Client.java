@@ -35,7 +35,7 @@ public class S3Client{
                 .build();
     }
 
-    public URL store(byte[] file, String fileKey, MimeType contentType) {
+    public String store(byte[] file, String fileKey, MimeType contentType) {
 
         InputStream stream = new ByteArrayInputStream(file);
         ObjectMetadata meta = new ObjectMetadata();
@@ -44,10 +44,10 @@ public class S3Client{
 
         client.putObject(properties.getBucket(), fileKey, stream, meta);
 
-        return getFileUrl(fileKey);
+        return fileKey;
     }
 
-    private URL getFileUrl(String fileKey) {
+    public URL getFileUrl(String fileKey) {
         GeneratePresignedUrlRequest generatePresignedUrlRequest =
                 new GeneratePresignedUrlRequest(properties.getBucket(), fileKey);
         generatePresignedUrlRequest.setMethod(HttpMethod.GET);

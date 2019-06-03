@@ -1,5 +1,6 @@
 package br.com.emiron.fileservice;
 
+import com.amazonaws.services.xray.model.Http;
 import com.amazonaws.util.Md5Utils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,10 @@ public class FileService {
         } catch (IOException e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    public ResponseEntity getFileUrl(String key){
+        return new ResponseEntity(client.getFileUrl(key), HttpStatus.OK);
 
     }
 }

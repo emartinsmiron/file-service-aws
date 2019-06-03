@@ -4,10 +4,7 @@ import br.com.emiron.fileservice.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URL;
@@ -23,6 +20,11 @@ public class FileController {
     @PostMapping
     private ResponseEntity<URL> upload(@RequestParam("file") final MultipartFile file) {
         return new ResponseEntity(service.upload(file),HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    private ResponseEntity<URL> getFileUrl(@RequestParam("file") final String key) {
+        return new ResponseEntity(service.getFileUrl(key),HttpStatus.CREATED);
     }
 
 }
